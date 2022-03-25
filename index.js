@@ -14,8 +14,8 @@ async function call(){
     const img = document.createElement('img');
 
     async function chiamatagatto(){
-        document.querySelector('select').addEventListener('click', async()=> {
-            const gattoCasualeResponse = await fetch(`https://cataas.com/cat/select.value?json=true`)
+       let select = document.querySelector('select').addEventListener('change', async()=> {
+            const gattoCasualeResponse = await fetch(`https://cataas.com/cat/${select.value}?json=true`)
             const gattoFinale = await gattoCasualeResponse.json()
             
             const img = document.createElement('img')
