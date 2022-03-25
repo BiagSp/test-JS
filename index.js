@@ -11,11 +11,11 @@ async function call(){
        cat.textContent = element;
        elemento.appendChild(cat)
     })
-    const img = document.createElement('img');
 
-    async function chiamatagatto(){
-       let select = document.querySelector('select').addEventListener('change', async()=> {
-            const gattoCasualeResponse = await fetch(`https://cataas.com/cat/${select.value}?json=true`)
+
+     function chiamatagatto(){
+        elemento.addEventListener('change', async()=> {
+            const gattoCasualeResponse = await fetch(`https://cataas.com/cat/${elemento.value}?json=true`)
             const gattoFinale = await gattoCasualeResponse.json()
             
             const img = document.createElement('img')
@@ -28,6 +28,8 @@ async function call(){
 
         })
     }
+
+    
 
     chiamatagatto()
   
