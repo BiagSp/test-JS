@@ -6,20 +6,38 @@ async function call(){
     const Arr3 = [...Arr1, ...Arr2]
    const elemento =  document.querySelector('select');
    
-    Arr3.forEach((element)=>{
+    const selection = Arr3.forEach((element)=>{
        const cat = document.createElement('option');
        cat.textContent = element;
        elemento.appendChild(cat)
     })
     const img = document.createElement('img');
-    function showElements(){
-        img = 
+
+    async function chiamatagatto(){
+        document.querySelector('select').addEventListener('click', async()=> {
+            const gattoCasualeResponse = await fetch(`https://cataas.com/cat/select.value?json=true`)
+            const gattoFinale = await gattoCasualeResponse.json()
+            
+            const img = document.createElement('img')
+            document.body.appendChild(img);
+            img.src = `https://cataas.com${gattoFinale.url}`
+
+            let pam = document.createElement('h2');
+            document.body.appendChild(pam)
+            pam.textContent = gattoFinale.tags.join('-');
+
+        })
     }
-    const click = document.querySelector('option').addEventListener('click', )
+
+    chiamatagatto()
+  
+
     
 }
 
 
+
+call()
 
 
 
