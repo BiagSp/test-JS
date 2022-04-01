@@ -20,8 +20,7 @@ Da questa:
 2. Ritorna la lista di tutte le Country (solo il nome)
 3. Ritrona solo il più alto per i Total Confirmed e i Toltal confirmed più basso */ 
 
-
- async function getdata(){
+async function getdata(){
     let response = await fetch('https://api.covid19api.com/summary');
     let result =await response.json();
     /* console.log(result); */
@@ -35,7 +34,6 @@ Da questa:
         let city = ele.Country;
         let body = document.querySelector('body').appendChild(shodata);
         let maxNum = ele.TotalConfirmed;
-        maxNum = Math.max(maxNum);
         shodata.append(maxNum);
         console.log(maxNum);
     }
@@ -44,6 +42,57 @@ Da questa:
 
 
 getdata()
+
+
+
+
+/* const createLi = document.createElement('li');
+const body = document.querySelector('body');
+async function getdata() {
+    let response = await fetch('https://api.covid19api.com/summary');
+    let result = await response.json();
+    const arrayData = result;
+    const newData = arrayData.Countries;
+    const infected = [];
+    const city = [];
+    
+    
+
+
+        for (ele of newData) {
+            const createLi = document.createElement('li');
+            const body = document.querySelector('body');
+            createLi.textContent = ele.Country;
+            body.appendChild(createLi);
+            city.push(ele.Country);
+        }
+
+        
+        for (ele of newData){
+            const createLi = document.createElement('li');
+            const body = document.querySelector('body');
+            createLi.textContent = ele.TotalConfirmed;
+            body.appendChild(createLi);
+            infected.push(ele.TotalConfirmed);
+            
+        }
+        
+        console.log(city,infected)
+
+        
+    }
+
+   
+    
+    
+
+    
+
+        getdata() */
+
+
+
+
 
 </script>
 </html>
