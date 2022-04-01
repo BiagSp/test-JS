@@ -27,12 +27,17 @@ Da questa:
     /* console.log(result); */
     let showName = result;
      let showdata = showName.Countries;
+     console.log(showdata);
      
-    for (let ele of showdata ){
+    for (let ele of showdata){
         let shodata = document.createElement('li');
         shodata.textContent = ele.Country;
+        let city = ele.Country;
         let body = document.querySelector('body').appendChild(shodata);
-      
+        let maxNum = ele.TotalConfirmed;
+        maxNum = Math.max(maxNum);
+        shodata.append(maxNum);
+        console.log(maxNum);
     }
         
 }
