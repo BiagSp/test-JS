@@ -16,16 +16,13 @@ async function call(){
      function chiamatagatto(){
         elemento.addEventListener('change', async()=> {
             const gattoCasualeResponse = await fetch(`https://cataas.com/cat/${elemento.value}?json=true`)
-            const gattoFinale = await gattoCasualeResponse.json()
-            
-            const img = document.createElement('img')
+            const gattoFinale = await gattoCasualeResponse.json() 
+            const img = document.createElement('img');
             document.body.appendChild(img);
             img.src = `https://cataas.com${gattoFinale.url}`
-
             let pam = document.createElement('h2');
             document.body.appendChild(pam)
             pam.textContent = gattoFinale.tags.join('-');
-
         })
     }
 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+
+
+<script>
+   /* 1) Crea uno script che recuperi i dati dalla seguente API: https://api.covid19api.com/summary. 
+
+Da questa:
+1. Ritorna i Total Confirmed
+2. Ritorna la lista di tutte le Country (solo il nome)
+3. Ritrona solo il più alto per i Total Confirmed e i Toltal confirmed più basso */ 
+
+
+ async function getdata(){
+    let response = await fetch('https://api.covid19api.com/summary');
+    let result =await response.json();
+    /* console.log(result); */
+    let showName = result;
+     let showdata = showName.Countries;
+     
+    for (let ele of showdata ){
+        let shodata = document.createElement('li');
+        shodata.textContent = ele.Country;
+        let body = document.querySelector('body').appendChild(shodata);
+      
+    }
+        
+}
+
+
+getdata()
+
+</script>
+</html>
